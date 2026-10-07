@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#080b14"
+  >
+
+  <title>LifeDesk</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+</head>
+
+
+<body>
+
+<div id="app">
+
+
+  <!-- =====================================================
+       APPLICATION SHELL
+  ====================================================== -->
+
+  <div class="app-shell">
+
+
+    <!-- ===================================================
+         SIDEBAR
+    ==================================================== -->
+
+    <aside
+      id="sidebar"
+      class="sidebar"
+    >
+
+      <div class="brand">
+
+        <div class="brand-logo">
+          ✦
+        </div>
+
+        <div class="brand-info">
+
+          <strong>
+            LifeDesk
+          </strong>
+
+          <small>
+            PERSONAL DESKTOP
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <!-- USER PROFILE -->
+
+      <div
+        id="sidebarProfile"
+        class="sidebar-profile"
+      >
+
+        <div
+          id="profileAvatar"
+          class="profile-avatar"
+        >
+          L
+        </div>
+
+        <div>
+
+          <strong id="profileName">
+            کاربر LifeDesk
+          </strong>
+
+          <small id="profileLevel">
+            Level 1
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <!-- NAVIGATION -->
+
+      <nav
+        id="mainNavigation"
+        class="main-navigation"
+      >
+
+        <button
+          class="nav-item active"
+          data-page="dashboard"
+        >
+
+          <span class="nav-icon">
+            🏠
+          </span>
+
+          <span class="nav-label">
+            داشبورد
+          </span>
+
+        </button>
+
+
+        <button
+          class="nav-item"
+          data-page="tasks"
+        >
+
+          <span class="nav-icon">
+            ✓
+          </span>
+
+          <span class="nav-label">
+            کارها
+          </span>
+
+          <span
+            id="taskBadge"
+            class="nav-badge"
+          >
+            0
+          </span>
+
+        </button>
+
+
+        <button
+          class="nav-item"
+          data-page="calendar"
+        >
+
+          <span class="nav-icon">
+            📅
+          </span>
+
+          <span class="nav-label">
+            تقویم
+          </span>
+
+        </button>
+
+
+        <button
+          class="nav-item"
+          data-page="notes"
+        >
+
+          <span class="nav-icon">
+            📝
+          </span>
+
+          <span class="nav-label">
+            یادداشت‌ها
+          </span>
+
+        </button>
+
+
+        <button
+          class="nav-item"
+          data-page="focus"
+        >
+
+          <span class="nav-icon">
+            ⏱️
+          </span>
+
+          <span class="nav-label">
+            تمرکز
+          </span>
+
+        </button>
+
+
+        <button
+          class="nav-item"
+          data-page="habits"
+        >
+
+          <span class="nav-icon">
+            🔥
+          </span>
+
+          <span class="nav-label">
+            عادت‌ها
+          </span>
+
+        </button>
+
+
+        <button
+          class="nav-item"
+          data-page="finance"
+        >
+
+          <span class="nav-icon">
+            💰
+          </span>
+
+          <span class="nav-label">
+            امور مالی
+          </span>
+
+        </button>
+
+
+        <button
+          class="nav-item"
+          data-page="files"
+        >
+
+          <span class="nav-icon">
+            📁
+          </span>
+
+          <span class="nav-label">
+            فایل‌ها
+          </span>
+
+        </button>
+
+
+        <button
+          class="nav-item"
+          data-page="reports"
+        >
+
+          <span class="nav-icon">
+            📊
+          </span>
+
+          <span class="nav-label">
+            گزارش‌ها
+          </span>
+
+        </button>
+
+
+        <div class="navigation-separator"></div>
+
+
+        <button
+          class="nav-item"
+          data-page="settings"
+        >
+
+          <span class="nav-icon">
+            ⚙️
+          </span>
+
+          <span class="nav-label">
+            تنظیمات
+          </span>
+
+        </button>
+
+      </nav>
+
+
+      <!-- XP CARD -->
+
+      <div class="sidebar-xp">
+
+        <div class="xp-header">
+
+          <span>
+            پیشرفت شما
+          </span>
+
+          <strong id="xpLevel">
+            LV 1
+          </strong>
+
+        </div>
+
+        <div class="xp-progress">
+
+          <div
+            id="xpProgressBar"
+            class="xp-progress-bar"
+          ></div>
+
+        </div>
+
+        <small id="xpText">
+          0 / 100 XP
+        </small>
+
+      </div>
+
+
+      <!-- SIDEBAR FOOTER -->
+
+      <div class="sidebar-footer">
+
+        <span>
+          LifeDesk Desktop
+        </span>
+
+        <span id="appVersion">
+          v3.0.0
+        </span>
+
+      </div>
+
+    </aside>
+
+
+
+    <!-- ===================================================
+         MAIN AREA
+    ==================================================== -->
+
+    <main class="main-area">
+
+
+      <!-- =================================================
+           TOP BAR
+      ================================================== -->
+
+      <header class="topbar">
+
+
+        <div class="topbar-left">
+
+
+          <button
+            id="sidebarToggle"
+            class="icon-button"
+            title="نمایش/مخفی کردن منو"
+          >
+            ☰
+          </button>
+
+
+          <div class="page-heading">
+
+            <h1 id="pageTitle">
+              داشبورد
+            </h1>
+
+            <p id="pageSubtitle">
+              مرکز کنترل زندگی و کارهای شما
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="topbar-right">
+
+
+          <!-- SEARCH -->
+
+          <div class="search-box">
+
+            <span>
+              🔎
+            </span>
+
+            <input
+              id="globalSearch"
+              type="search"
+              placeholder="جستجو در LifeDesk..."
+              autocomplete="off"
+            >
+
+            <kbd>
+              Ctrl K
+            </kbd>
+
+          </div>
+
+
+          <!-- NOTIFICATION -->
+
+          <button
+            id="notificationButton"
+            class="icon-button notification-button"
+            title="اعلان‌ها"
+          >
+
+            🔔
+
+            <span
+              id="notificationBadge"
+              class="notification-dot"
+            ></span>
+
+          </button>
+
+
+          <!-- THEME -->
+
+          <button
+            id="themeButton"
+            class="icon-button"
+            title="تغییر حالت نمایش"
+          >
+            ☀️
+          </button>
+
+
+          <!-- USER -->
+
+          <button
+            id="userMenuButton"
+            class="user-menu-button"
+          >
+
+            <span
+              id="topAvatar"
+              class="top-avatar"
+            >
+              L
+            </span>
+
+            <span
+              id="topUserName"
+              class="top-user-name"
+            >
+              کاربر
+            </span>
+
+            <span>
+              ▾
+            </span>
+
+          </button>
+
+        </div>
+
+      </header>
+
+
+
+      <!-- =================================================
+           PAGE CONTAINER
+      ================================================== -->
+
+      <section
+        id="pageContainer"
+        class="page-container"
+      >
+
+        <!--
+          app.js تمام صفحات را داخل این قسمت قرار می‌دهد.
+        -->
+
+
+        <!-- =================================================
+             DASHBOARD
+        ================================================== -->
+
+        <section
+          id="page-dashboard"
+          class="page"
+          data-page-view="dashboard"
+        >
+
+          <div class="welcome-hero">
+
+            <div class="welcome-content">
+
+              <span class="eyebrow">
+                LIFE DESK
+              </span>
+
+              <h2 id="welcomeTitle">
+                سلام 👋
+              </h2>
+
+              <p>
+                امروز را بهتر از دیروز مدیریت کن.
+                کارها، زمان، عادت‌ها و زندگی شخصی‌ات
+                همه در یک محیط.
+              </p>
+
+              <div class="hero-actions">
+
+                <button
+                  class="primary-button"
+                  data-action="new-task"
+                >
+                  + کار جدید
+                </button>
+
+                <button
+                  class="secondary-button"
+                  data-action="start-focus"
+                >
+                  شروع تمرکز
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <div class="welcome-visual">
+
+              <div class="visual-circle circle-one"></div>
+
+              <div class="visual-circle circle-two"></div>
+
+              <div class="visual-center">
+                ✦
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- DASHBOARD STATS -->
+
+          <div class="stats-grid">
+
+
+            <article class="stat-card">
+
+              <div class="stat-icon purple">
+                ✓
+              </div>
+
+              <div>
+
+                <span>
+                  کارهای امروز
+                </span>
+
+                <strong id="dashboardTaskCount">
+                  0
+                </strong>
+
+                <small id="dashboardTaskChange">
+                  0 انجام شده
+                </small>
+
+              </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+              <div class="stat-icon green">
+                🔥
+              </div>
+
+              <div>
+
+                <span>
+                  عادت‌ها
+                </span>
+
+                <strong id="dashboardHabitCount">
+                  0
+                </strong>
+
+                <small>
+                  فعال
+                </small>
+
+              </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+              <div class="stat-icon orange">
+                ⏱
+              </div>
+
+              <div>
+
+                <span>
+                  زمان تمرکز
+                </span>
+
+                <strong id="dashboardFocusTime">
+                  0m
+                </strong>
+
+                <small>
+                  امروز
+                </small>
+
+              </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+              <div class="stat-icon blue">
+                ⭐
+              </div>
+
+              <div>
+
+                <span>
+                  امتیاز
+                </span>
+
+                <strong id="dashboardXP">
+                  0
+                </strong>
+
+                <small>
+                  XP
+                </small>
+
+              </div>
+
+            </article>
+
+          </div>
+
+
+
+          <!-- DASHBOARD CONTENT -->
+
+          <div class="dashboard-grid">
+
+
+            <!-- TODAY TASKS -->
+
+            <article class="content-card">
+
+              <div class="card-header">
+
+                <div>
+
+                  <h3>
+                    کارهای امروز
+                  </h3>
+
+                  <p>
+                    مهم‌ترین کارهای امروز
+                  </p>
+
+                </div>
+
+                <button
+                  class="text-button"
+                  data-page-link="tasks"
+                >
+                  مشاهده همه
+                </button>
+
+              </div>
+
+              <div
+                id="dashboardTasks"
+                class="task-preview-list"
+              ></div>
+
+            </article>
+
+
+
+            <!-- QUICK ACTIONS -->
+
+            <article class="content-card">
+
+              <div class="card-header">
+
+                <div>
+
+                  <h3>
+                    دسترسی سریع
+                  </h3>
+
+                  <p>
+                    ابزارهای پرکاربرد
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="quick-actions">
+
+                <button
+                  data-page="tasks"
+                  class="quick-action"
+                >
+                  <span>✓</span>
+                  <b>کار جدید</b>
+                  <small>مدیریت وظایف</small>
+                </button>
+
+
+                <button
+                  data-page="notes"
+                  class="quick-action"
+                >
+                  <span>📝</span>
+                  <b>یادداشت</b>
+                  <small>ثبت ایده</small>
+                </button>
+
+
+                <button
+                  data-page="focus"
+                  class="quick-action"
+                >
+                  <span>⏱</span>
+                  <b>تمرکز</b>
+                  <small>Pomodoro</small>
+                </button>
+
+
+                <button
+                  data-page="finance"
+                  class="quick-action"
+                >
+                  <span>💰</span>
+                  <b>هزینه</b>
+                  <small>ثبت تراکنش</small>
+                </button>
+
+              </div>
+
+            </article>
+
+
+
+            <!-- HABITS -->
+
+            <article class="content-card">
+
+              <div class="card-header">
+
+                <div>
+
+                  <h3>
+                    عادت‌های امروز
+                  </h3>
+
+                  <p>
+                    زنجیره عادت‌هایت را حفظ کن
+                  </p>
+
+                </div>
+
+                <button
+                  class="text-button"
+                  data-page-link="habits"
+                >
+                  همه
+                </button>
+
+              </div>
+
+              <div
+                id="dashboardHabits"
+                class="habit-preview-list"
+              ></div>
+
+            </article>
+
+
+
+            <!-- UPCOMING EVENTS -->
+
+            <article class="content-card">
+
+              <div class="card-header">
+
+                <div>
+
+                  <h3>
+                    برنامه بعدی
+                  </h3>
+
+                  <p>
+                    رویدادهای پیش رو
+                  </p>
+
+                </div>
+
+                <button
+                  class="text-button"
+                  data-page-link="calendar"
+                >
+                  تقویم
+                </button>
+
+              </div>
+
+              <div
+                id="dashboardEvents"
+                class="event-preview-list"
+              ></div>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TASKS
+        ================================================== -->
+
+        <section
+          id="page-tasks"
+          class="page hidden"
+          data-page-view="tasks"
+        >
+
+          <div class="page-toolbar">
+
+            <div>
+
+              <h2>
+                مدیریت کارها
+              </h2>
+
+              <p>
+                وظایف خود را مرتب و قابل پیگیری کن.
+              </p>
+
+            </div>
+
+            <button
+              class="primary-button"
+              data-action="new-task"
+            >
+              + کار جدید
+            </button>
+
+          </div>
+
+
+          <div class="filter-bar">
+
+            <button
+              class="filter-button active"
+              data-task-filter="all"
+            >
+              همه
+            </button>
+
+            <button
+              class="filter-button"
+              data-task-filter="pending"
+            >
+              در انتظار
+            </button>
+
+            <button
+              class="filter-button"
+              data-task-filter="completed"
+            >
+              انجام شده
+            </button>
+
+            <select
+              id="taskSort"
+              class="select-control"
+            >
+
+              <option value="created">
+                جدیدترین
+              </option>
+
+              <option value="priority">
+                اولویت
+              </option>
+
+              <option value="title">
+                عنوان
+              </option>
+
+              <option value="due">
+                موعد
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div
+            id="tasksPageList"
+            class="content-card"
+          ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CALENDAR
+        ================================================== -->
+
+        <section
+          id="page-calendar"
+          class="page hidden"
+          data-page-view="calendar"
+        >
+
+          <div class="page-toolbar">
+
+            <div>
+
+              <h2>
+                تقویم
+              </h2>
+
+              <p>
+                برنامه و رویدادهای خود را مدیریت کن.
+              </p>
+
+            </div>
+
+            <button
+              class="primary-button"
+              data-action="new-event"
+            >
+              + رویداد جدید
+            </button>
+
+          </div>
+
+
+          <div class="calendar-toolbar">
+
+            <button
+              id="calendarPrev"
+              class="icon-button"
+            >
+              ←
+            </button>
+
+            <h3 id="calendarMonth">
+              -
+            </h3>
+
+            <button
+              id="calendarNext"
+              class="icon-button"
+            >
+              →
+            </button>
+
+            <button
+              id="calendarToday"
+              class="secondary-button"
+            >
+              امروز
+            </button>
+
+          </div>
+
+
+          <div
+            id="calendarGrid"
+            class="calendar-grid"
+          ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             NOTES
+        ================================================== -->
+
+        <section
+          id="page-notes"
+          class="page hidden"
+          data-page-view="notes"
+        >
+
+          <div class="page-toolbar">
+
+            <div>
+
+              <h2>
+                یادداشت‌ها
+              </h2>
+
+              <p>
+                ایده‌ها و اطلاعات مهم خود را ذخیره کن.
+              </p>
+
+            </div>
+
+            <button
+              class="primary-button"
+              data-action="new-note"
+            >
+              + یادداشت جدید
+            </button>
+
+          </div>
+
+
+          <div
+            id="notesGrid"
+            class="notes-grid"
+          ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOCUS
+        ================================================== -->
+
+        <section
+          id="page-focus"
+          class="page hidden"
+          data-page-view="focus"
+        >
+
+          <div class="focus-layout">
+
+
+            <article class="focus-card">
+
+              <span
+                id="focusModeLabel"
+                class="eyebrow"
+              >
+                FOCUS SESSION
+              </span>
+
+              <h2>
+                زمان تمرکز
+              </h2>
+
+              <div
+                id="focusTimer"
+                class="focus-timer"
+              >
+                25:00
+              </div>
+
+              <div class="focus-progress">
+
+                <div
+                  id="focusProgressBar"
+                  class="focus-progress-bar"
+                ></div>
+
+              </div>
+
+              <div class="focus-controls">
+
+                <button
+                  id="focusStart"
+                  class="primary-button"
+                >
+                  ▶ شروع
+                </button>
+
+                <button
+                  id="focusPause"
+                  class="secondary-button"
+                >
+                  ⏸ توقف
+                </button>
+
+                <button
+                  id="focusReset"
+                  class="secondary-button"
+                >
+                  ↺
+                </button>
+
+              </div>
+
+            </article>
+
+
+            <div class="focus-side">
+
+
+              <article class="content-card">
+
+                <h3>
+                  حالت جلسه
+                </h3>
+
+                <div class="focus-presets">
+
+                  <button
+                    data-focus-preset="25"
+                    class="preset active"
+                  >
+                    <b>25</b>
+                    <small>دقیقه</small>
+                  </button>
+
+                  <button
+                    data-focus-preset="45"
+                    class="preset"
+                  >
+                    <b>45</b>
+                    <small>دقیقه</small>
+                  </button>
+
+                  <button
+                    data-focus-preset="60"
+                    class="preset"
+                  >
+                    <b>60</b>
+                    <small>دقیقه</small>
+                  </button>
+
+                </div>
+
+              </article>
+
+
+              <article class="content-card">
+
+                <h3>
+                  آمار تمرکز
+                </h3>
+
+                <div class="mini-stats">
+
+                  <div>
+                    <strong id="focusSessions">
+                      0
+                    </strong>
+
+                    <span>
+                      جلسه
+                    </span>
+                  </div>
+
+                  <div>
+                    <strong id="focusMinutes">
+                      0
+                    </strong>
+
+                    <span>
+                      دقیقه
+                    </span>
+                  </div>
+
+                </div>
+
+              </article>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             HABITS
+        ================================================== -->
+
+        <section
+          id="page-habits"
+          class="page hidden"
+          data-page-view="habits"
+        >
+
+          <div class="page-toolbar">
+
+            <div>
+
+              <h2>
+                عادت‌ها
+              </h2>
+
+              <p>
+                هر روز یک قدم جلوتر.
+              </p>
+
+            </div>
+
+            <button
+              class="primary-button"
+              data-action="new-habit"
+            >
+              + عادت جدید
+            </button>
+
+          </div>
+
+
+          <div
+            id="habitsGrid"
+            class="habits-grid"
+          ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FINANCE
+        ================================================== -->
+
+        <section
+          id="page-finance"
+          class="page hidden"
+          data-page-view="finance"
+        >
+
+          <div class="page-toolbar">
+
+            <div>
+
+              <h2>
+                امور مالی
+              </h2>
+
+              <p>
+                درآمد و هزینه‌ها را مدیریت کن.
+              </p>
+
+            </div>
+
+            <button
+              class="primary-button"
+              data-action="new-expense"
+            >
+              + تراکنش
+            </button>
+
+          </div>
+
+
+          <div class="finance-stats">
+
+            <article class="stat-card">
+
+              <span>
+                هزینه این ماه
+              </span>
+
+              <strong id="financeTotal">
+                0
+              </strong>
+
+            </article>
+
+            <article class="stat-card">
+
+              <span>
+                درآمد
+              </span>
+
+              <strong id="financeIncome">
+                0
+              </strong>
+
+            </article>
+
+            <article class="stat-card">
+
+              <span>
+                مانده
+              </span>
+
+              <strong id="financeBalance">
+                0
+              </strong>
+
+            </article>
+
+          </div>
+
+
+          <div class="content-card">
+
+            <div class="card-header">
+
+              <div>
+
+                <h3>
+                  تراکنش‌های اخیر
+                </h3>
+
+              </div>
+
+            </div>
+
+            <div
+              id="financeTransactions"
+            ></div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FILES
+        ================================================== -->
+
+        <section
+          id="page-files"
+          class="page hidden"
+          data-page-view="files"
+        >
+
+          <div class="page-toolbar">
+
+            <div>
+
+              <h2>
+                فایل‌ها
+              </h2>
+
+              <p>
+                فایل‌ها و پوشه‌های مهم خود را مدیریت کن.
+              </p>
+
+            </div>
+
+            <button
+              class="primary-button"
+              data-action="open-folder"
+            >
+              📁 انتخاب پوشه
+            </button>
+
+          </div>
+
+
+          <div class="file-toolbar">
+
+            <button
+              id="fileBack"
+              class="secondary-button"
+            >
+              ← بازگشت
+            </button>
+
+            <span
+              id="currentFolderPath"
+              class="muted"
+            >
+              پوشه انتخاب نشده
+            </span>
+
+          </div>
+
+
+          <div
+            id="fileGrid"
+            class="file-grid"
+          ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             REPORTS
+        ================================================== -->
+
+        <section
+          id="page-reports"
+          class="page hidden"
+          data-page-view="reports"
+        >
+
+          <div class="page-toolbar">
+
+            <div>
+
+              <h2>
+                گزارش‌ها
+              </h2>
+
+              <p>
+                عملکرد خودت را بررسی کن.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="reports-grid">
+
+
+            <article class="content-card">
+
+              <div class="card-header">
+
+                <div>
+
+                  <h3>
+                    عملکرد کارها
+                  </h3>
+
+                </div>
+
+              </div>
+
+              <div
+                id="tasksReport"
+                class="report-chart"
+              ></div>
+
+            </article>
+
+
+            <article class="content-card">
+
+              <div class="card-header">
+
+                <div>
+
+                  <h3>
+                    فعالیت هفتگی
+                  </h3>
+
+                </div>
+
+              </div>
+
+              <div
+                id="weeklyReport"
+                class="report-chart"
+              ></div>
+
+            </article>
+
+
+          </div>
+
+
+          <div class="content-card">
+
+            <h3>
+              خلاصه عملکرد
+            </h3>
+
+            <div
+              id="reportSummary"
+              class="summary-grid"
+            ></div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SETTINGS
+        ================================================== -->
+
+        <section
+          id="page-settings"
+          class="page hidden"
+          data-page-view="settings"
+        >
+
+          <div class="page-toolbar">
+
+            <div>
+
+              <h2>
+                تنظیمات
+              </h2>
+
+              <p>
+                LifeDesk را مطابق نیاز خود تنظیم کن.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="settings-layout">
+
+
+            <article class="content-card">
+
+              <h3>
+                👤 پروفایل
+              </h3>
+
+              <div class="form-grid">
+
+                <label>
+                  نام
+
+                  <input
+                    id="settingName"
+                    class="input-control"
+                    type="text"
+                    placeholder="نام شما"
+                  >
+
+                </label>
+
+
+                <label>
+                  واحد پول
+
+                  <input
+                    id="settingCurrency"
+                    class="input-control"
+                    type="text"
+                    placeholder="تومان"
+                  >
+
+                </label>
+
+              </div>
+
+
+              <button
+                id="saveProfileSettings"
+                class="primary-button"
+              >
+                ذخیره
+              </button>
+
+            </article>
+
+
+
+            <article class="content-card">
+
+              <h3>
+                🎨 ظاهر
+              </h3>
+
+              <div class="theme-options">
+
+                <button
+                  data-theme="dark"
+                  class="theme-option"
+                >
+                  🌙
+                  <span>
+                    تاریک
+                  </span>
+                </button>
+
+                <button
+                  data-theme="light"
+                  class="theme-option"
+                >
+                  ☀️
+                  <span>
+                    روشن
+                  </span>
+                </button>
+
+                <button
+                  data-theme="system"
+                  class="theme-option"
+                >
+                  💻
+                  <span>
+                    سیستم
+                  </span>
+                </button>
+
+              </div>
+
+            </article>
+
+
+
+            <article class="content-card">
+
+              <h3>
+                💾 اطلاعات
+              </h3>
+
+              <p class="muted">
+                از اطلاعات برنامه نسخه پشتیبان بگیر
+                یا آن را بازیابی کن.
+              </p>
+
+              <div class="row-actions">
+
+                <button
+                  id="createBackupButton"
+                  class="primary-button"
+                >
+                  ساخت Backup
+                </button>
+
+                <button
+                  id="restoreBackupButton"
+                  class="secondary-button"
+                >
+                  Restore
+                </button>
+
+                <button
+                  id="openDataFolderButton"
+                  class="secondary-button"
+                >
+                  📁 پوشه اطلاعات
+                </button>
+
+              </div>
+
+            </article>
+
+
+
+            <article class="content-card danger-card">
+
+              <h3>
+                ⚠️ منطقه خطر
+              </h3>
+
+              <p class="muted">
+                پاک کردن اطلاعات قابل بازگشت نیست.
+                قبل از این کار Backup بگیر.
+              </p>
+
+              <button
+                id="clearAllDataButton"
+                class="danger-button"
+              >
+                پاک کردن تمام اطلاعات
+              </button>
+
+            </article>
+
+
+
+            <article class="content-card">
+
+              <h3>
+                ℹ️ درباره LifeDesk
+              </h3>
+
+              <div class="about-info">
+
+                <div>
+                  <span>
+                    نسخه
+                  </span>
+
+                  <strong id="aboutVersion">
+                    3.0.0
+                  </strong>
+                </div>
+
+                <div>
+                  <span>
+                    سیستم عامل
+                  </span>
+
+                  <strong id="aboutPlatform">
+                    -
+                  </strong>
+                </div>
+
+                <div>
+                  <span>
+                    معماری
+                  </span>
+
+                  <strong id="aboutArchitecture">
+                    -
+                  </strong>
+                </div>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+      </section>
+
+
+      <!-- =================================================
+           STATUS BAR
+      ================================================== -->
+
+      <footer class="statusbar">
+
+        <span id="statusText">
+          آماده
+        </span>
+
+        <span class="status-right">
+
+          <span>
+            ● Offline
+          </span>
+
+          <span id="saveStatus">
+            ذخیره شد
+          </span>
+
+        </span>
+
+      </footer>
+
+    </main>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       MODAL ROOT
+  ====================================================== -->
+
+  <div
+    id="modalRoot"
+    class="modal-root hidden"
+  ></div>
+
+
+
+  <!-- =====================================================
+       TOAST
+  ====================================================== -->
+
+  <div
+    id="toastContainer"
+    class="toast-container"
+  ></div>
+
+
+
+  <!-- =====================================================
+       CONTEXT MENU
+  ====================================================== -->
+
+  <div
+    id="contextMenu"
+    class="context-menu hidden"
+  ></div>
+
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>

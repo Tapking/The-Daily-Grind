@@ -1,0 +1,92 @@
+{
+  "name": "lifedesk-desktop",
+  "version": "3.0.0",
+  "description": "LifeDesk - Desktop Productivity & Personal Management App",
+  "main": "main.js",
+  "author": "LifeDesk",
+  "license": "MIT",
+  "private": true,
+
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux"
+  },
+
+  "dependencies": {},
+
+  "devDependencies": {
+    "electron": "^36.0.0",
+    "electron-builder": "^26.0.0"
+  },
+
+  "build": {
+    "appId": "com.lifedesk.desktop",
+    "productName": "LifeDesk",
+    "artifactName": "LifeDesk-${version}-${os}-${arch}.${ext}",
+
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+
+    "files": [
+      "**/*",
+      "!release/**",
+      "!node_modules/.cache/**"
+    ],
+
+    "asar": true,
+
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "LifeDesk",
+      "deleteAppDataOnUninstall": false
+    },
+
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "assets/icon.icns",
+      "category": "public.app-category.productivity"
+    },
+
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility",
+      "icon": "assets"
+    }
+  },
+
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
